@@ -1,0 +1,20 @@
+<div class= "new-book-container">
+  <h2>CADASTRE O NOVO LIVRO</h2>
+  <div class= 'book-form'>
+    <%= simple_form_for @book do |f| %>
+      <%= f.input :title %>
+      <%= f.input :code %>
+      <%= f.input :pages %>
+      <%= f.input :tiragem %>
+      <%= f.input :selo %>
+      <%= f.input :delivery_date %>
+      <%= f.input :fitilho %>
+      <%= f.input :cabeceado %>
+      <%= f.input :pintura_lateral %>
+      <%= f.input :sticker %>
+      <%= f.input :encartes %>
+
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

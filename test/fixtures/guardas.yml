@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guarda_format: MyString
+  guarda_paper: MyString
+  guarda_colors: MyString
+  guarda_finish: MyString
+  book: one
+
+two:
+  guarda_format: MyString
+  guarda_paper: MyString
+  guarda_colors: MyString
+  guarda_finish: MyString
+  book: two

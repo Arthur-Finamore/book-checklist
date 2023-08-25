@@ -1,0 +1,20 @@
+.new-book-container {
+  padding: 50px;
+
+}
+
+.new-book-container h2 {
+  text-align: center;
+}
+
+.book-form input[type="number"]::-webkit-inner-spin-button,
+.book-form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0; /* Isso pode ser ajustado para definir o espaçamento entre o input e as bordas */
+}
+
+/* Para garantir que o estilo funcione em outros navegadores além do WebKit (Chrome, Safari) */
+.book-form input[type="number"] {
+  -moz-appearance: textfield;
+}

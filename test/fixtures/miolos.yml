@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  miolo_format: MyString
+  miolo_paper: MyString
+  miolo_colors: MyString
+  miolo_finish: MyString
+  book: one
+
+two:
+  miolo_format: MyString
+  miolo_paper: MyString
+  miolo_colors: MyString
+  miolo_finish: MyString
+  book: two

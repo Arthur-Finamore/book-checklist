@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cover_type: MyString
+  cover_format: MyString
+  cover_paper: MyString
+  cover_colors: MyString
+  cover_finish: MyString
+  book: one
+
+two:
+  cover_type: MyString
+  cover_format: MyString
+  cover_paper: MyString
+  cover_colors: MyString
+  cover_finish: MyString
+  book: two
