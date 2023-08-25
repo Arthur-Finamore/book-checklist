@@ -1,0 +1,36 @@
+<h1>CHECKLIST DO LIVRO <%= @book.title.upcase %></h1>
+
+<h3>Dados Gerais</h3>
+<p><strong>Título:</strong> <%= @book.title %></p>
+<p><strong>Código:</strong> <%= @book.code %></p>
+<p><strong>Páginas:</strong> <%= @book.pages %></p>
+<p><strong>Tiragem:</strong> <%= @book.tiragem %></p>
+<p><strong>Selo:</strong> <%= @book.selo %></p>
+<p><strong>Data de Entrega:</strong> <%= @book.delivery_date %></p>
+<p><strong>Fitilho:</strong> <%= @book.fitilho %></p>
+<p><strong>Cabeceado:</strong> <%= @book.cabeceado %></p>
+<p><strong>Pintura Lateral:</strong> <%= @book.pintura_lateral %></p>
+<p><strong>Sticker:</strong> <%= @book.sticker ? 'Sim' : 'Não' %></p>
+<p><strong>Encartes:</strong> <%= @book.encartes ? 'Sim' : 'Não' %></p>
+
+<h3>Dados de Capa</h3>
+<p><strong>Tipo de Capa:</strong> <%= @book.cover_type %></p>
+<p><strong>Formato de Capa:</strong> <%= @book.cover_format %></p>
+<p><strong>Papel da Capa:</strong> <%= @book.cover_paper %></p>
+<p><strong>Cores da Capa:</strong> <%= @book.cover_colors %></p>
+<p><strong>Acabamento da Capa:</strong> <%= @book.cover_finish %></p>
+
+<h3>Dados do Miolo</h3>
+<p><strong>Formato do Miolo:</strong> <%= @book.miolo_format %></p>
+<p><strong>Papel do Miolo:</strong> <%= @book.miolo_paper %></p>
+<p><strong>Cores do Miolo:</strong> <%= @book.miolo_colors %></p>
+<p><strong>Acabamento do Miolo:</strong> <%= @book.miolo_finish %></p>
+
+<h3>Dados de Guarda</h3>
+<p><strong>Formato da Guarda:</strong> <%= @book.guarda_format %></p>
+<p><strong>Papel da Guarda:</strong> <%= @book.guarda_paper %></p>
+<p><strong>Cores da Guarda:</strong> <%= @book.guarda_colors %></p>
+<p><strong>Acabamento da Guarda:</strong> <%= @book.guarda_finish %></p>
+
+<%= link_to 'Editar', edit_book_path(@book) %> |
+<%= link_to 'Voltar', books_path %>
