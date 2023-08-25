@@ -1,1 +1,5 @@
 <%= render 'navbar' %>
+
+<% @books.each do |book| %>
+ <%= link_to book.title, book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+<% end %>
