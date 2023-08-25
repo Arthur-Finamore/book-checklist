@@ -1,0 +1,22 @@
+.new-book-container {
+  padding: 50px;
+  background-color: #f6f7fa;
+}
+
+.book-form-header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.avatar-large {
+  width: 150px;
+  border-radius: 50%;
+  margin-right: 24px;
+}
+
+.new-book-container h2, h3 {
+  text-align: center;
+}

@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = books.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def new
@@ -14,16 +14,17 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(books_params)
+    @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to @book, notice: 'Book was successfully created.'
+      redirect_to books_path, notice: 'Book was successfully created.'
     else
       render :new
     end
   end
 
+
   def edit
-    @book = books.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
   def update
@@ -44,7 +45,13 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :code, :pages, :tirage, :seal, :delivery_date, :fitilho, :cabeceado, :pintura_lateral, :sticker, :encartes, :user_id)
+    params.require(:book).permit(
+      :title, :code, :pages, :tiragem, :selo, :delivery_date, :fitilho,
+      :cabeceado, :pintura_lateral, :sticker, :encartes,
+      :cover_type, :cover_format, :cover_paper, :cover_colors, :cover_finish,
+      :miolo_format, :miolo_paper, :miolo_colors, :miolo_finish,
+      :guarda_format, :guarda_paper, :guarda_colors, :guarda_finish
+    )
   end
 
 end
