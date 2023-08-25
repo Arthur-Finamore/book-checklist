@@ -1,6 +1,12 @@
 <nav>
   <ul class='app-header'>
     <li><%= link_to image_tag('logo_darkside.jpg', class:'logo-navbar', alt:'logo da darkside em extenso vermelho'), root_path %></li>
-    <li><%= link_to 'CADASTRAR LIVRO', new_book_path %>
+
+    <% if user_signed_in? %>
+      <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <% else %>
+      <li><%= link_to "Login", new_user_session_path %></li>
+    <% end %>
+    <li><%= link_to 'CADASTRAR LIVRO', new_book_path %></li>
   </ul>
 </nav>

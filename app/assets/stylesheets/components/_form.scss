@@ -7,6 +7,12 @@
   text-align: center;
 }
 
+.book-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .book-form input[type="number"]::-webkit-inner-spin-button,
 .book-form input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -17,4 +23,17 @@
 /* Para garantir que o estilo funcione em outros navegadores além do WebKit (Chrome, Safari) */
 .book-form input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.form-button {
+  /* Seus estilos de transição */
+  color: #ffffff;
+  background-color: #262626;
+  border-color: #262626;
+  border-radius: .25rem;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+
+  /* Centraliza horizontalmente e ajusta verticalmente conforme necessário */
+  display: block;
+  margin: 20px auto; /* Ajuste a margem superior e inferior conforme necessário */
 }

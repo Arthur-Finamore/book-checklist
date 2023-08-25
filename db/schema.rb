@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_24_210201) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_25_155714) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "code"
@@ -26,19 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_210201) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_books_on_user_id"
-  end
-
-  create_table "covers", force: :cascade do |t|
     t.string "cover_type"
     t.string "cover_format"
     t.string "cover_paper"
     t.string "cover_colors"
     t.string "cover_finish"
-    t.integer "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_covers_on_book_id"
+    t.string "guarda_format"
+    t.string "guarda_paper"
+    t.string "guarda_colors"
+    t.string "guarda_finish"
+    t.string "miolo_format"
+    t.string "miolo_paper"
+    t.string "miolo_colors"
+    t.string "miolo_finish"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "guardas", force: :cascade do |t|
@@ -77,7 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_24_210201) do
   end
 
   add_foreign_key "books", "users"
-  add_foreign_key "covers", "books"
   add_foreign_key "guardas", "books"
   add_foreign_key "miolos", "books"
 end
