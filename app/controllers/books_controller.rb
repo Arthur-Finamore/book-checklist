@@ -9,6 +9,18 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def show_pdf
+    @book = Book.find(params[:id])
+
+    respond_to do |format|
+      format.pdf do
+        render pdf: "Checklist #{@book.title}",
+               template: 'books/show',
+               layout: 'pdf_layout'
+      end
+    end
+  end
+
   def new
     @book = Book.new
   end
@@ -16,7 +28,7 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to books_path, notice: 'Book was successfully created.'
+      redirect_to book_path(@book), notice: 'Book was successfully created.'
     else
       render :new
     end
@@ -39,7 +51,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to index_path, notice: 'Book was successfully destroyed.'
+    redirect_to root_path, notice: 'Book was successfully destroyed.'
   end
 
   private
