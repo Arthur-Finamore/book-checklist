@@ -1,20 +1,43 @@
-<%= render 'navbar' %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CHECKLIST</title>
+  <!-- Inclua os cabeçalhos e estilos necessários para a formatação do PDF aqui -->
+  <style>
 
-<div class= "book-form-header">
-   <%= image_tag('logo-dark-preta.png', class:'avatar-large') %>
-  <h2><strong>CHECKLIST DE LANÇAMENTO</strong></h2>
- </div>
+  h2 {
+    text-align: center;
+  }
 
-<h3>CHECKLIST DE LANÇAMENTOS </h3>
+  h3 {
+    margin: 24px 0;
+  }
 
-<div class= 'show-form'>
+  .book-form-header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+</style>
+
+</head>
+<body>
+ <div class="book-form-header">
+    <%= image_tag wicked_pdf_asset_base64("logo-dark-preta.png"), style: "width: 150px; border-radius: 50%; margin-right: 24px;" %>
+    <h3>CHECKLIST DE LANÇAMENTO</h3>
+  </div>
+
+
   <h3>Dados Gerais</h3>
   <p><strong>Título:</strong> <%= @book.title %></p>
   <p><strong>Código:</strong> <%= @book.code %></p>
   <p><strong>Páginas:</strong> <%= @book.pages %></p>
   <p><strong>Tiragem:</strong> <%= @book.tiragem %></p>
   <p><strong>Selo:</strong> <%= @book.selo %></p>
-  <p><strong>Data de Entrega:</strong> <%= @book.delivery_date %></p>
+  <p><strong>Data de Entrega:</strong> <%= @book.delivery_date.strftime('%d/%m/%Y') %></p>
   <p><strong>Fitilho:</strong> <%= @book.fitilho %></p>
   <p><strong>Cabeceado:</strong> <%= @book.cabeceado %></p>
   <p><strong>Pintura Lateral:</strong> <%= @book.pintura_lateral %></p>
@@ -39,14 +62,7 @@
   <p><strong>Papel da Guarda:</strong> <%= @book.guarda_paper %></p>
   <p><strong>Cores da Guarda:</strong> <%= @book.guarda_colors %></p>
   <p><strong>Acabamento da Guarda:</strong> <%= @book.guarda_finish %></p>
-</div>
 
-
-<div class="show-footer">
-  <%= link_to "Gerar PDF", show_pdf_book_path(@book, format: :pdf), class: "btn btn-success" %>
-  <div class="buttons-show-footer">
-    <%= link_to 'Editar', edit_book_path(@book), class: "btn btn-dark" %>
-      <%= link_to 'Deletar', book_path(@book), data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a checklist?"}, class: "btn btn-danger" %>
-      <%= link_to 'Voltar', books_path,  class: "btn btn-dark" %>
-    </div>
-  </div>
+  <p style="margin-top: 80px"><%= "Rio de Janeiro, #{Date.today.strftime('%d/%m/%Y')}, #{current_user.name}" %></p>
+</body>
+</html>
