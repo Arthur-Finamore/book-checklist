@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_25_155714) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_03_144847) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.integer "code"
@@ -23,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_155714) do
     t.string "pintura_lateral"
     t.boolean "sticker"
     t.boolean "encartes"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "cover_type"
@@ -31,37 +34,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_155714) do
     t.string "cover_paper"
     t.string "cover_colors"
     t.string "cover_finish"
-    t.string "guarda_format"
-    t.string "guarda_paper"
-    t.string "guarda_colors"
-    t.string "guarda_finish"
     t.string "miolo_format"
     t.string "miolo_paper"
     t.string "miolo_colors"
     t.string "miolo_finish"
+    t.string "guarda_format"
+    t.string "guarda_paper"
+    t.string "guarda_colors"
+    t.string "guarda_finish"
     t.index ["user_id"], name: "index_books_on_user_id"
-  end
-
-  create_table "guardas", force: :cascade do |t|
-    t.string "guarda_format"
-    t.string "guarda_paper"
-    t.string "guarda_colors"
-    t.string "guarda_finish"
-    t.integer "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_guardas_on_book_id"
-  end
-
-  create_table "miolos", force: :cascade do |t|
-    t.string "miolo_format"
-    t.string "miolo_paper"
-    t.string "miolo_colors"
-    t.string "miolo_finish"
-    t.integer "book_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_miolos_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,6 +59,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_25_155714) do
   end
 
   add_foreign_key "books", "users"
-  add_foreign_key "guardas", "books"
-  add_foreign_key "miolos", "books"
 end

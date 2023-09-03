@@ -1,29 +1,36 @@
-<h2>Sign up</h2>
+<%= render '/books/navbar' %>
+
+<div class='devise-container'>
+<h2>Crie sua conta</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name,
-                required: true,
-                autofocus: true,
-                label: "Name" %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+  <div class="form-inputs-container">
+    <div class="form-inputs">
+      <%= f.input :name,
+                  required: true,
+                  autofocus: true,
+                  label: "Nome",
+                  input_html: { style: "width: 500px;" } %>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { style: "width: 500px;", autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  label: "Senha",
+                  hint: ("#{@minimum_password_length} caracteres no mínimo" if @minimum_password_length),
+                  input_html: { style: "width: 500px;", autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label: "Confirme sua senha",
+                  input_html: { style: "width: 500px;", autocomplete: "new-password" } %>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Cadastrar", class: "btn btn-dark" %>
+    <!-- <%= render "devise/shared/links", class: "btn btn-success" %> -->
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>

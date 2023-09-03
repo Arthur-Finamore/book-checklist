@@ -29,6 +29,10 @@ gem "jbuilder"
 
 gem 'wicked_pdf'
 
+gem "pg_search"
+
+gem 'pg'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
