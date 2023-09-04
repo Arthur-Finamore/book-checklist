@@ -3,15 +3,17 @@ class BooksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def index
-    @books = Book.all
+    #@books = Book.all
     if params[:query]
       @books = Book.search_by_title_and_code(params[:query])
       else
-        @books = @books.all
+        @books = []
     end
   end
 
-
+  def all
+    @books = Book.all
+  end
 
 
   def show

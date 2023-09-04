@@ -19,3 +19,17 @@
   margin: 20px auto; /* Ajuste a margem superior e inferior conforme necessário */
 
 }
+
+ #search-no-result {
+  text-align: center;
+  margin-left: 0%;
+}
+
+.all-books {
+  margin-top: 96px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  gap: 48px;
+}
