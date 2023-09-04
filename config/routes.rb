@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     member do
       get 'show_pdf', format: :pdf
     end
+    collection do
+      get 'all', to: 'books#all', as: 'all'
+    end
   end
 end

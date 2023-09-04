@@ -1,14 +1,6 @@
 <%= render 'navbar' %>
 
-<h2> Resultados da Pesquisa</h2>
-
-<% if @books.any? %>
-  <% @books.each do |book| %>
-    <%= link_to book.title, book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
-  <% end %>
-<% else %>
-  <p>Nenhum resultado encontrado.</p>
-<% end %>
+<h2> Busque por um título</h2>
 
 <div class="row justify-content-center">
   <div class="col-sm-8 my-3">
@@ -16,9 +8,25 @@
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Type a keyword"
+            placeholder: "Digite o título ou código do livro"
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
   </div>
+</div>
+
+<% if params[:query].present? %>
+  <% if @books.any? %>
+    <% @books.each do |book| %>
+      <h3>Resultado da Pesquisa:</h3>
+      <%= link_to book.title, book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+    <% end %>
+  <% else %>
+    <p id="search-no-result">Nenhum resultado encontrado.</p>
+  <% end %>
+<% end %>
+
+<div class="all-books">
+  <%= link_to "Ver todos os títulos", all_books_path, class: "btn btn-secondary" %>
+      <li><%= link_to 'Cadastrar um Checklist', new_book_path, class: "btn btn-success"%></li>
 </div>
