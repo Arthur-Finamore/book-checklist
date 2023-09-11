@@ -11,7 +11,7 @@
   }
 
   h3 {
-    margin: 24px 0;
+    margin: 16px 0;
     text-decoration: underline;
     text-align: center;
   }
@@ -45,7 +45,7 @@
   <div class="book-data">
 
     <h3>Dados Gerais</h3>
-    <p><strong>Título:</strong> <%= @book.title %></p>
+    <p><strong>Título:</strong> <%= @book.title.upcase %></p>
     <p><strong>Código:</strong> <%= @book.code %></p>
     <p><strong>Páginas:</strong> <%= @book.pages %></p>
     <p><strong>Tiragem:</strong> <%= @book.tiragem %></p>

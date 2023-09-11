@@ -19,7 +19,7 @@
   <% if @books.any? %>
     <% @books.each do |book| %>
       <h3>Resultado da Pesquisa:</h3>
-      <%= link_to book.title, book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+      <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
     <% end %>
   <% else %>
     <p id="search-no-result">Nenhum resultado encontrado.</p>
