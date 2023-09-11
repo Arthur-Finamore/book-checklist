@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'printing_prices/show'
   get 'printing_prices/create'
   get 'printing_prices/update'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
   root 'books#index'
   resources :books do

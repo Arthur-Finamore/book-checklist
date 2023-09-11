@@ -19,3 +19,16 @@
   flex-direction: column;
 
 }
+
+.edit-form-footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+
+.back-button {
+  margin-left: 75%;
+  padding: 16px;
+}
