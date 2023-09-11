@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       format.pdf do
-        render pdf: "Checklist #{@book.title}",
+        render pdf: "Checklist - #{@book.title}",
                template: 'books/show',
                layout: 'pdf_layout'
       end

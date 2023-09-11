@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'printing_prices/index'
+  get 'printing_prices/show'
+  get 'printing_prices/create'
+  get 'printing_prices/update'
   devise_for :users
 
   root 'books#index'

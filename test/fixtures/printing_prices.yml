@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  ipsis_price: 9.99
+  coan_price: 9.99
+  geografica_price: 9.99
+  leograf_price: 9.99
+  book: one
+
+two:
+  quantity: 1
+  ipsis_price: 9.99
+  coan_price: 9.99
+  geografica_price: 9.99
+  leograf_price: 9.99
+  book: two
