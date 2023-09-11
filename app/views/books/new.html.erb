@@ -15,6 +15,9 @@
     <%= f.input :tiragem, input_html: { style: "width: 500px;" } %>
     <%= f.input :selo, input_html: { style: "width: 500px;" } %>
     <%= f.input :delivery_date, input_html: { style: "width: 33%;" } %>
+    <div>
+      <input type="checkbox" id="limpar_checkbox"> Sem Data Definida<datagrid></datagrid>
+    </div>
     <%= f.input :fitilho, input_html: { style: "width: 500px;" } %>
     <%= f.input :cabeceado, input_html: { style: "width: 500px;" } %>
     <%= f.input :pintura_lateral, input_html: { style: "width: 500px;" } %>
@@ -49,3 +52,18 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+  // Obtém a caixa de seleção e o campo de entrada
+  const limparCheckbox = document.getElementById("limpar_checkbox");
+  const deliveryDateInput = document.getElementById("delivery_date");
+
+  // Adiciona um ouvinte de eventos para a caixa de seleção
+  limparCheckbox.addEventListener("change", function() {
+    // Se a caixa de seleção estiver marcada, limpa o campo de entrada
+    if (limparCheckbox.checked) {
+      deliveryDateInput.value = "";
+    }
+  });
+</script>
