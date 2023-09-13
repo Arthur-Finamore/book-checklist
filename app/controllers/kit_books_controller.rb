@@ -1,0 +1,2 @@
+class KitBooksController < ApplicationController
+end
