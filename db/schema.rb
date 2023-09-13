@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_190329) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_13_204353) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,30 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_190329) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.bigint "kit_book_id", null: false
+    t.string "item"
+    t.integer "quantity"
+    t.string "supplier"
+    t.float "unit_price"
+    t.float "total_price"
+    t.float "shipping"
+    t.string "observation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kit_book_id"], name: "index_items_on_kit_book_id"
+  end
+
+  create_table "kit_books", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.string "name"
+    t.float "total_price"
+    t.integer "budget_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_kit_books_on_book_id"
+  end
+
   create_table "printing_prices", force: :cascade do |t|
     t.integer "quantity"
     t.decimal "ipsis_price"
@@ -71,5 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_190329) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "items", "kit_books"
+  add_foreign_key "kit_books", "books"
   add_foreign_key "printing_prices", "books"
 end
