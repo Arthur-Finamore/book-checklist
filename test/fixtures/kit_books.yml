@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: one
+  name: MyString
+  total_price: 9.99
+  budget_price: 1
+
+two:
+  book: two
+  name: MyString
+  total_price: 9.99
+  budget_price: 1

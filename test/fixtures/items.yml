@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kit_book: one
+  item: MyString
+  quantity: 1
+  supplier: MyString
+  unit_price: 1.5
+  total_price: 1.5
+  shipping: 1.5
+  observation: MyString
+
+two:
+  kit_book: two
+  item: MyString
+  quantity: 1
+  supplier: MyString
+  unit_price: 1.5
+  total_price: 1.5
+  shipping: 1.5
+  observation: MyString
