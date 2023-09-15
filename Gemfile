@@ -33,6 +33,8 @@ gem "pg_search"
 
 gem 'pg'
 
+#gem 'jquery-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -52,7 +54,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 gem "simple_form"
 gem 'devise'
-gem "bootstrap", "~> 5.2"
+gem 'bootstrap', '~> 5.0.2'
 gem "font-awesome-sass", "~> 6.1"
 gem "autoprefixer-rails"
 

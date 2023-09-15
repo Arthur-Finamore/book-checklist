@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "@floating-ui/dom": "^1.5.3",
+    "@popperjs/core": "^2.11.8",
     "@rails/webpacker": "5.4.4",
     "bootstrap": "^5.3.1",
+    "popper.js": "^1.16.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"
   },

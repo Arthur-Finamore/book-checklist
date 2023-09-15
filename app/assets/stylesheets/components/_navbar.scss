@@ -12,31 +12,37 @@ li {
   list-style-type: none;
 }
 
-.app-header a {
-  color: inherit;
+#nav-list-item {
   text-decoration: none;
+  color: black;
+  padding: 0.25rem 1rem;
 }
 
-/* Estilos para o dropdown */
-.dropdown {
-  position: relative;
-}
+// .app-header a {
+//   color: inherit;
+//   text-decoration: none;
+// }
 
-.dropdown-toggle {
-  cursor: pointer;
-}
+// /* Estilos para o dropdown */
+// .dropdown {
+//   position: relative;
+// }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  min-width: 200px; /* Largura mínima do dropdown */
-}
+// .dropdown-toggle {
+//   cursor: pointer;
+// }
 
-.dropdown-toggle.active + .dropdown-content {
-  display: block;
-}
+// .dropdown-content {
+//   display: none;
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   z-index: 1;
+//   border: 1px solid #ccc;
+//   background-color: #fff;
+//   min-width: 200px; /* Largura mínima do dropdown */
+// }
+
+// .dropdown-toggle.active + .dropdown-content {
+//   display: block;
+// }
