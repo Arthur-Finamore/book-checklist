@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :printing_prices, only: [:index, :show, :create, :update]
+  resources :printing_prices, only: [:index, :show, :create, :update, :new]
 
   resources :kit_books do
     resources :items

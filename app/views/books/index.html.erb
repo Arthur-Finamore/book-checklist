@@ -1,32 +1,100 @@
 <%= render 'navbar' %>
 
-<h2> Busque por um título</h2>
+<div class="container">
+  <div class="row">
+    <!-- Menu Acordeão -->
+    <div class="col-md-3 ">
+      <div class="side-bar-menu">
+        <h4 id='menu-title'>Menu</h4>
+        <div class="accordion" id="verticalAccordion">
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Checklist
+              </button>
+            </h3>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#verticalAccordion">
+              <ul class="list-unstyled">
+                <li><%= link_to 'Cadastrar', new_book_path, class: 'dropdown-item' %></li>
+                <li><%= link_to 'Ver Todas', all_books_path, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Kit Book
+              </button>
+            </h3>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#verticalAccordion">
+              <ul class="list-unstyled">
+                <li><%= link_to 'Cadastrar', new_kit_book_path, class: 'dropdown-item' %></li>
+                <li><%= link_to 'Todos/Buscar', kit_books_path, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Orçamento Livros
+              </button>
+            </h3>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#verticalAccordion">
+              <ul class="list-unstyled">
+                <li><%= link_to 'Cadastrar', new_printing_price_path, class: 'dropdown-item' %></li>
+                <li><%= link_to 'Todos/Buscar', printing_prices_path, class: 'dropdown-item' %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
 
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: books_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Digite o título ou código do livro"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-    <% end %>
+
+
+<div class="col-md-9">
+  <div class="index-content">
+      <h2 style="margin-bottom: 40px"> Busque por um título</h2>
+
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <%= form_with url: books_path, method: :get, class: "d-flex" do %>
+            <div class="input-group">
+              <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Digite o título ou código do livro"
+                %>
+              <div class="input-group-append">
+                <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <% if params[:query].present? %>
+        <% if @books.any? %>
+          <% @books.each do |book| %>
+            <h3>Resultado da Pesquisa:</h3>
+            <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+          <% end %>
+        <% else %>
+          <p id="search-no-result">Nenhum resultado encontrado.</p>
+        <% end %>
+      <% end %>
+
+      <div class="all-books">
+        <%= link_to "Ver todos os Checklists", all_books_path, class: "btn btn-secondary" %>
+            <li><%= link_to 'Cadastrar um Checklist', new_book_path, class: "btn btn-success"%></li>
+      </div>
   </div>
 </div>
 
-<% if params[:query].present? %>
-  <% if @books.any? %>
-    <% @books.each do |book| %>
-      <h3>Resultado da Pesquisa:</h3>
-      <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
-    <% end %>
-  <% else %>
-    <p id="search-no-result">Nenhum resultado encontrado.</p>
-  <% end %>
-<% end %>
-
-<div class="all-books">
-  <%= link_to "Ver todos os Checklists", all_books_path, class: "btn btn-secondary" %>
-      <li><%= link_to 'Cadastrar um Checklist', new_book_path, class: "btn btn-success"%></li>
 </div>
+
+<script>
+  $('.dropdown-toggle').click(function() {
+    $(this).next('.dropdown-menu').toggle();
+  });
+</script>
