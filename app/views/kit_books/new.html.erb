@@ -8,32 +8,33 @@
   <div class= 'book-form'>
     <%= simple_form_for @kit_book do |f| %>
       <!-- KitBook fields -->
-      <%= f.input :name %>
+      <h2>Kit book name:   <%= f.collection_select :book_id, Book.all, :id, :title, prompt: "Selecione um livro", selected: @kit_book.book_id %></h2>
 
       <!-- Item fields -->
     <div id="item-fields" class="item-flex-container">
-      <% item_number = 1 %>
-      <%= f.simple_fields_for :items do |item_fields| %>
-        <div class="item-flex-item">
-          <h2>Item <%= item_number %></h2>
-          <%= render 'item_fields', f: item_fields %>
-        </div>
-        <% item_number += 1 %>
+      <% @kit_book.items.each do |item| %>
+        <%= f.simple_fields_for :items do |item_fields| %>
+          <div class="item-flex-item">
+            <%= render 'item_fields', f: item_fields %>
+            <% @item_number += 1 %>
+          </div>
+        <% end %>
       <% end %>
-</div>
+    </div>
 
-      <div class="links">
-        <%= link_to_add_association 'Add Item', f, :items, data: { association_insertion_node: '#item-fields' } %>
-      </div>
+    <div class="links">
+      <%= link_to_add_association 'Adicionar Item', f, :items, class: "btn btn-primary" %>
+    </div>
 
-      <%= f.submit "Create Kit Book" %>
+    <%= f.submit "Create Kit Book", class: "btn btn-dark" %>
     <% end %>
 
   </div>
 </div>
 
 <script>
-  $(document).on('cocoon:before-insert', function(e, insertedItem) {
-    console.log('Before insert event triggered');
-  });
+$(document).on('cocoon:after-remove', function(e, removedItem) {
+  // Remove the empty div from the DOM
+  $(removedItem).closest('.item-flex-item').remove();
+});
 </script>
