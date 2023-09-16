@@ -1,0 +1,39 @@
+<%= render 'navbar' %>
+
+<div class= "new-book-container">
+  <div class= "book-form-header">
+    <%= image_tag('logo-dark-preta.png', class:'avatar-large') %>
+   <h2><strong>Orçamento de KitBook</strong></h2>
+  </div>
+  <div class= 'book-form'>
+    <%= simple_form_for @kit_book do |f| %>
+      <!-- KitBook fields -->
+      <%= f.input :name %>
+
+      <!-- Item fields -->
+    <div id="item-fields" class="item-flex-container">
+      <% item_number = 1 %>
+      <%= f.simple_fields_for :items do |item_fields| %>
+        <div class="item-flex-item">
+          <h2>Item <%= item_number %></h2>
+          <%= render 'item_fields', f: item_fields %>
+        </div>
+        <% item_number += 1 %>
+      <% end %>
+</div>
+
+      <div class="links">
+        <%= link_to_add_association 'Add Item', f, :items, data: { association_insertion_node: '#item-fields' } %>
+      </div>
+
+      <%= f.submit "Create Kit Book" %>
+    <% end %>
+
+  </div>
+</div>
+
+<script>
+  $(document).on('cocoon:before-insert', function(e, insertedItem) {
+    console.log('Before insert event triggered');
+  });
+</script>

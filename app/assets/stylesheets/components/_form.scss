@@ -39,3 +39,18 @@
   display: block;
   margin: 20px auto; /* Ajuste a margem superior e inferior conforme necessário */
 }
+
+/* Example using CSS Flexbox */
+.item-flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next row when needed */
+  gap: 20px; /* Adjust gap size as needed */
+}
+
+.item-flex-item {
+  flex: 1; /* Distribute available space equally among items */
+  border: 1px solid #ccc;
+  padding: 10px;
+  /* Add other styles as needed */
+  max-width: 300px; /* Optionally limit the maximum width of each item */
+}

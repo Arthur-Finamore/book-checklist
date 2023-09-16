@@ -9,7 +9,8 @@ class KitBooksController < ApplicationController
   end
 
   def new
-
+    @kit_book = KitBook.new
+    2.times { @kit_book.items.build }
   end
 
   def create
