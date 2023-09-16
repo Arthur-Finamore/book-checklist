@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :kit_books do
     resources :items
   end
+   # Registrar o controller search
+   resources :search, controller: 'search', stimulus: './search_controller'
 end
