@@ -5,3 +5,4 @@ pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js', preload: true
 pin 'application', preload: true
 pin 'bootstrap', to: 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
 pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.2/dist/esm/index.js"
+pin "@nathanvda/cocoon", to: "https://ga.jspm.io/npm:@nathanvda/cocoon@1.2.14/cocoon.js"

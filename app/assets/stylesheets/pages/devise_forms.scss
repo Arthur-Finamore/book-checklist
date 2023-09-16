@@ -14,10 +14,10 @@
 
 .form-actions {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-
+  gap: 1rem;
 }
 
 .edit-form-footer {
@@ -31,4 +31,9 @@
 .back-button {
   margin-left: 75%;
   padding: 16px;
+}
+
+.login-footer {
+  display: flex;
+  margin-top: 2rem ;
 }

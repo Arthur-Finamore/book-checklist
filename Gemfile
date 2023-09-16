@@ -33,6 +33,10 @@ gem "pg_search"
 
 gem 'pg'
 
+gem 'jquery-rails'
+
+gem 'cocoon'
+
 #gem 'jquery-rails'
 
 # Use Redis adapter to run Action Cable in production
