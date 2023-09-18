@@ -1,0 +1,54 @@
+<%= render "navbar" %>
+
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+<div class= "book-form-header">
+   <%= image_tag('logo_darkside_branca.png', class:'small-logo') %>
+  <h2><strong>ORÇAMENTO DO KITBOOK <%= link_to @kit_book.name.upcase, book_path %></strong></h2>
+ </div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Fornecedor</th>
+        <th>Preço Unitário</th>
+        <th>Preço Total</th>
+        <th>Frete</th>
+        <th>Observações</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @kit_book.items.each do |item| %>
+        <tr>
+          <td><%= item.item %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.supplier %></td>
+          <td>R$ <%= number_with_precision(item.unit_price, precision: 2, separator: ',', delimiter: '.') %></td>
+          <td>R$ <%= number_with_precision(item.total_price, precision: 2, separator: ',', delimiter: '.') %></td>
+          <td>R$ <%= number_with_precision(item.shipping, precision: 2, separator: ',', delimiter: '.') %></td>
+          <td><%= item.observation %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="kit-book-footer">
+    <%= link_to "Editar Kit Book", edit_kit_book_path, class:"btn btn-dark", style:"height: 40px;"  %>
+
+    <table >
+      <thead>
+        <tr>
+          <th><strong>Total do Kit:</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>R$ <%= number_with_precision(@kit_book.total_price, precision: 2, separator: ',', delimiter: '.') %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>

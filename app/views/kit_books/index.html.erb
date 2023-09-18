@@ -1,0 +1,8 @@
+<%= render 'navbar' %>
+
+
+
+<h3>TODOS OS KIT BOOKS CADASTRADOS:</h3>
+<% @kit_books.each do |kit_book| %>
+      <%= link_to "Kit Boook - #{kit_book.name}", kit_book_path(kit_book.id), style: 'text-decoration: none;', class: 'book-button' %>
+    <% end %>

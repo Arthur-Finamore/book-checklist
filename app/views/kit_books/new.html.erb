@@ -1,40 +1,48 @@
 <%= render 'navbar' %>
 
-<div class= "new-book-container">
-  <div class= "book-form-header">
-    <%= image_tag('logo-dark-preta.png', class:'avatar-large') %>
-   <h2><strong>Orçamento de KitBook</strong></h2>
+<div class="new-book-container">
+  <div class="book-form-header">
+    <%= image_tag('logo-dark-preta.png', class: 'avatar-large') %>
+    <h2><strong>Editar KitBook</strong></h2>
   </div>
-  <div class= 'book-form'>
+  <div class='book-form'>
     <%= simple_form_for @kit_book do |f| %>
       <!-- KitBook fields -->
-      <h2>Kit book name:   <%= f.collection_select :book_id, Book.all, :id, :title, prompt: "Selecione um livro", selected: @kit_book.book_id %></h2>
+      <h2>Kit book name: <%= f.collection_select :book_id, Book.all, :id, :title, prompt: "Selecione um livro", selected: @kit_book.book_id %></h2>
 
       <!-- Item fields -->
-    <div id="item-fields" class="item-flex-container">
-      <% @kit_book.items.each do |item| %>
-        <%= f.simple_fields_for :items do |item_fields| %>
-          <div class="item-flex-item">
-            <%= render 'item_fields', f: item_fields %>
-            <% @item_number += 1 %>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+        <div id="item-fields" class="item-flex-container">
+          <% item_number= [] %>
+          <% @kit_book.items.each_with_index do |item, index| %>
+            <%= f.simple_fields_for :items, item do |item_fields| %>
+              <div>
+              <h5>Item <%= index + 1 %></h5>
+              <%= render 'item_fields', f: item_fields %>
+              </div>
+              <% item_number << index %>
+            <% end %>
+          <% end %>
+        <div class="links item-flex">
+          <%= link_to_add_association 'Adicionar Item', f, :items, class: "btn btn-primary" %>
+        </div>
+      </div>
+        </div>
 
-    <div class="links">
-      <%= link_to_add_association 'Adicionar Item', f, :items, class: "btn btn-primary" %>
-    </div>
-
-    <%= f.submit "Create Kit Book", class: "btn btn-dark" %>
+      <%= f.submit "Atualizar Kit Book", class: "btn btn-dark" %>
     <% end %>
-
   </div>
 </div>
 
 <script>
-$(document).on('cocoon:after-remove', function(e, removedItem) {
-  // Remove the empty div from the DOM
-  $(removedItem).closest('.item-flex-item').remove();
-});
-</script>
+// $(document).ready(function() {
+//   $(document).on("cocoon:after-insert", function(e, insertedItem) {
+//     console.log("Após a inserção de um novo item");
+//     var itemNumbers = $(insertedItem).closest('.item-flex-container').find('.nested-fields');
+//     if (itemNumbers.length > 0) {
+//       var nextNumber = itemNumbers.length + 1;
+//       var newItemHtml = '<div><h5>Item ' + nextNumber + '</h5></div>';
+//       $(insertedItem).before(newItemHtml);
+//     }
+//   });
+// });
+// </script>
