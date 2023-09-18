@@ -1,12 +1,13 @@
 <!-- app/views/kit_books/_item_fields.html.erb -->
 <div class="nested-fields">
-  <h5>Item <%= @item_number %></h5>
-  <%= f.input :item, label:"Nome do Item" %>
+<% @kit_book.item_ids.each_with_index do |id, index| %>
+  <h5>Item <%= index + 1 %></h5>
+  <%= f.input :item, label: "Nome do Item" %>
   <%= f.input :quantity, label: "Quantidade" %>
   <%= f.input :supplier, label: "Fornecedor" %>
-  <%= f.input :total_price , label: "Valor Total"  %>
-  <%= f.input :shipping,  label: "Frete" %>
+  <%= f.input :total_price, label: "Valor Total" %>
+  <%= f.input :shipping, label: "Frete" %>
   <%= f.input :observation, label: "Observações" %>
   <%= link_to_remove_association "Remove Item", f, class: "btn btn-danger" %>
-  <% @item_number += 1 %>
+<% end %>
 </div>

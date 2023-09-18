@@ -22,7 +22,7 @@ class KitBooksController < ApplicationController
 
   def new
     @kit_book = KitBook.new
-    2.times { @kit_book.items.build } # Construir 2 itens iniciais
+    5.times { @kit_book.items.build } # Construir 2 itens iniciais
     @item_number = 1
 
     # Remove the empty div from the DOM
@@ -57,6 +57,7 @@ class KitBooksController < ApplicationController
   end
 
   def update
+    @item_number = 1
     if @kit_book.update(kit_book_params)
       redirect_to @kit_book, notice: 'Kit de livros atualizado com sucesso.'
     else
@@ -76,7 +77,7 @@ class KitBooksController < ApplicationController
   end
 
   def kit_book_params
-    params.require(:kit_book).permit(:book_id, :name, items_attributes: [:id, :item, :quantity, :supplier, :unit_price, :total_price, :shipping, :observation, :_destroy])
+    params.require(:kit_book).permit(:book_id, :budget_price, :name, items_attributes: [:id, :item, :quantity, :supplier, :unit_price, :total_price, :shipping, :observation, :_destroy])
   end
 
 end

@@ -2,47 +2,30 @@
 
 <div class="new-book-container">
   <div class="book-form-header">
-    <%= image_tag('logo-dark-preta.png', class: 'avatar-large') %>
-    <h2><strong>Editar KitBook</strong></h2>
+    <%= image_tag('logo_darkside_branca.png', class: 'small-logo') %>
+    <h2><strong>Cadastrar KitBook</strong></h2>
   </div>
   <div class='book-form'>
     <%= simple_form_for @kit_book do |f| %>
       <!-- KitBook fields -->
-      <h2>Kit book name: <%= f.collection_select :book_id, Book.all, :id, :title, prompt: "Selecione um livro", selected: @kit_book.book_id %></h2>
+      <div class="d-flex justify-content-around p-2">
+        <h3>Nome do Kit Book: <%= f.collection_select :book_id, Book.all, :id, :title, { prompt: "Selecione um livro", selected: @kit_book.book_id }, { style: 'font-size: 22px' } %></h3>
 
+        <h5>Orçamento R$: <%= f.select :budget_price, [[number_with_precision(1500, precision: 2, separator: ',', delimiter: '.'), 1500], [number_with_precision(2500, precision: 2, separator: ',', delimiter: '.'), 2500], [number_with_precision(5000, precision: 2, separator: ',', delimiter: '.'), 5000]], {},{ style: 'font-size: 16px; align-self: end' } %></h5>
+      </div>
       <!-- Item fields -->
-        <div id="item-fields" class="item-flex-container">
-          <% item_number= [] %>
-          <% @kit_book.items.each_with_index do |item, index| %>
-            <%= f.simple_fields_for :items, item do |item_fields| %>
-              <div>
-              <h5>Item <%= index + 1 %></h5>
+      <div id="item-fields" class="item-flex-container">
+          <%= f.simple_fields_for :items do |item_fields| %>
+            <div>
               <%= render 'item_fields', f: item_fields %>
-              </div>
-              <% item_number << index %>
-            <% end %>
+            </div>
           <% end %>
         <div class="links item-flex">
           <%= link_to_add_association 'Adicionar Item', f, :items, class: "btn btn-primary" %>
         </div>
       </div>
-        </div>
 
-      <%= f.submit "Atualizar Kit Book", class: "btn btn-dark" %>
+      <%= f.submit "Cadastrar Kit Book", class: "btn btn-dark" %>
     <% end %>
   </div>
 </div>
-
-<script>
-// $(document).ready(function() {
-//   $(document).on("cocoon:after-insert", function(e, insertedItem) {
-//     console.log("Após a inserção de um novo item");
-//     var itemNumbers = $(insertedItem).closest('.item-flex-container').find('.nested-fields');
-//     if (itemNumbers.length > 0) {
-//       var nextNumber = itemNumbers.length + 1;
-//       var newItemHtml = '<div><h5>Item ' + nextNumber + '</h5></div>';
-//       $(insertedItem).before(newItemHtml);
-//     }
-//   });
-// });
-// </script>
