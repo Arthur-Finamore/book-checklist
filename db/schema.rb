@@ -63,9 +63,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_204353) do
     t.bigint "book_id", null: false
     t.string "name"
     t.float "total_price"
-    t.integer "budget_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "budget_price"
     t.index ["book_id"], name: "index_kit_books_on_book_id"
   end
 
