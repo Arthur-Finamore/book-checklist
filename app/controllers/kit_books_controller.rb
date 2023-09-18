@@ -6,13 +6,23 @@ class KitBooksController < ApplicationController
   end
 
   def show
-    # Mostrar detalhes do kit de livros
-  end
+    items_price = []
 
+    # Certifique-se de que @kit_book e @kit_book.items estejam definidos corretamente
+
+    # Iterar pelos itens do kit e calcular a soma dos preços
+    @kit_book.items.each do |item|
+      items_price << item.total_price
+    end
+
+    # Calcular o preço total e atribuí-lo a @kit_book.total_price
+    @kit_book.total_price = items_price.sum
+    # raise
+  end
 
   def new
     @kit_book = KitBook.new
-     2.times { @kit_book.items.build } # Construir 2 itens iniciais
+    2.times { @kit_book.items.build } # Construir 2 itens iniciais
     @item_number = 1
 
     # Remove the empty div from the DOM
@@ -37,6 +47,13 @@ class KitBooksController < ApplicationController
 
   def edit
     # Editar o kit de livros
+    @kit_book = KitBook.find(params[:id])
+    @item_number = 1
+
+    # Remove the empty div from the DOM
+    if @kit_book.items.count == 1
+       @kit_book.items[0].destroy
+    end
   end
 
   def update
