@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   # ... outros atributos ...
+  belongs_to :kit_book
 
   validates :item, presence: true
   validates :quantity, presence: true, numericality: { only_integer: true }

@@ -8,10 +8,10 @@
   <div class='book-form'>
     <%= simple_form_for @kit_book do |f| %>
       <!-- KitBook fields -->
-      <div class="d-flex justify-content-around p-2">
-        <h3>Nome do Kit Book: <%= f.collection_select :book_id, Book.all, :id, :title, { prompt: "Selecione um livro", selected: @kit_book.book_id }, { style: 'font-size: 22px' } %></h3>
+      <div class="d-flex flex-column justify-content-around p-2">
+        <h3 style="text-align: start">Nome do Kit Book: <%= f.collection_select :book_id, Book.all, :id, :title, { prompt: "Selecione um livro", selected: @kit_book.book_id }, { style: 'font-size: 22px' } %></h3>
 
-        <h5>Orçamento R$: <%= f.select :budget_price, [[number_with_precision(1500, precision: 2, separator: ',', delimiter: '.'), 1500], [number_with_precision(2500, precision: 2, separator: ',', delimiter: '.'), 2500], [number_with_precision(5000, precision: 2, separator: ',', delimiter: '.'), 5000]], {},{ style: 'font-size: 16px; align-self: end' } %></h5>
+        <h5>Orçamento R$: <%= f.select :budget_price, [[number_with_precision(1500, precision: 2, separator: ',', delimiter: '.'), 1500], [number_with_precision(2500, precision: 2, separator: ',', delimiter: '.'), 2500], [number_with_precision(5000, precision: 2, separator: ',', delimiter: '.'), 5000]], {},{ style: 'font-size: 16px; align-self: end;'  } %></h5>
       </div>
 
       <!-- Item fields -->
@@ -22,11 +22,11 @@
             <%= render 'item_fields', f: item_fields %>
           </div>
           <% end %>
-        <div class="links item-flex">
+        <div class="links item-flex mt-auto">
           <%= link_to_add_association 'Adicionar Item', f, :items, class: "btn btn-primary" %>
         </div>
       </div>
-      <%= f.submit "Atualizar Kit Book", class: "btn btn-dark" %>
+      <%= f.submit "Atualizar Kit Book", class: "btn btn-dark mt-5"; %>
     <% end %>
   </div>
 </div>

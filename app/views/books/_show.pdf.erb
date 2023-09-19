@@ -7,12 +7,10 @@
   <style>
 
   h2 {
-    text-align: center;
+    text-align: end;
   }
 
   h3 {
-    margin: 16px 0;
-    text-decoration: underline;
     text-align: center;
   }
 
@@ -20,9 +18,8 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 24px;
-   align-items: flex-end; /* Corrija aqui para align-items */
    }
 
   .book-data {
@@ -39,7 +36,7 @@
 <body>
  <div class="book-form-header">
     <%= image_tag wicked_pdf_asset_base64("logo_darkside_branca.png"), style: "width: 90px; margin-right: 24px;" %>
-    <h3>CHECKLIST DE LANÇAMENTO</h3>
+    <h2>CHECKLIST DE LANÇAMENTO</h2>
   </div>
 
   <div class="book-data">

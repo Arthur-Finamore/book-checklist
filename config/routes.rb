@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'books#index'
 
   resources :books do
+    resources :printing_prices, shallow: true
     member do
       get 'show_pdf', format: :pdf
     end
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :printing_prices, only: [:index, :show, :create, :update, :new]
 
   resources :kit_books do
     resources :items
