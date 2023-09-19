@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_13_204353) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_18_183208) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_204353) do
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "budget_price"
+    t.jsonb "budget_price", default: {"tipo 1"=>1500, "tipo 2"=>2500, "tipo 3"=>5000}
     t.index ["book_id"], name: "index_kit_books_on_book_id"
   end
 

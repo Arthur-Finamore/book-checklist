@@ -34,6 +34,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    @book.printing_prices.build # Isso cria uma instância de printing_prices para o livro
   end
 
   def create
@@ -48,6 +49,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    @book.printing_prices.build unless @book.printing_prices.present?
   end
 
   def update
@@ -73,7 +75,9 @@ class BooksController < ApplicationController
       :cabeceado, :pintura_lateral, :sticker, :encartes,
       :cover_type, :cover_format, :cover_paper, :cover_colors, :cover_finish,
       :miolo_format, :miolo_paper, :miolo_colors, :miolo_finish,
-      :guarda_format, :guarda_paper, :guarda_colors, :guarda_finish
+      :guarda_format, :guarda_paper, :guarda_colors, :guarda_finish,
+
+      printing_prices_attributes: [:id, :quantity, :ipsis_price, :coan_price, :geografica_price, :leograf_price, :_destroy]
     )
   end
 
