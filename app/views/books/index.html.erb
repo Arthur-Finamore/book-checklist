@@ -41,8 +41,8 @@
             </h3>
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#verticalAccordion">
               <ul class="list-unstyled">
-                <li><%= link_to 'Cadastrar', new_book_path, class: 'dropdown-item' %></li>
-                <li><%= link_to 'Ver Todas', all_books_path, class: 'dropdown-item' %></li>
+                <%# <li><%= link_to 'Imprimir preços', printing_prices_show_book_path(@book.id)%></li> %>
+                <li><%= link_to 'Ver Todas', printing_prices_index_books_path(@book), class: 'dropdown-item' %></li>
               </ul>
             </div>
           </div>

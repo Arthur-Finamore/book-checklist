@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     resources :printing_prices, shallow: true
     member do
       get 'show_pdf', format: :pdf
+      get 'printing_prices_show', to: 'books#printing_prices_show', as: 'printing_prices_show'
     end
     collection do
+      get 'printing_prices_index', to: 'books#printing_prices_index', as: 'printing_prices_index'
       get 'all', to: 'books#all', as: 'all'
     end
   end

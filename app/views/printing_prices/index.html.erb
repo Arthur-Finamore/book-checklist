@@ -1,2 +1,6 @@
-<h1>PrintingPrices#index</h1>
-<p>Find me in app/views/printing_prices/index.html.erb</p>
+<%= render 'navbar' %>
+
+<h3>TODOS OS TITULOS CADASTRADOS:</h3>
+<% @books.each do |book| %>
+      <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+    <% end %>

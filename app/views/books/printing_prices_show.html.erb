@@ -1,0 +1,140 @@
+<%= render "navbar" %>
+
+<div class="container mt-5">
+  <h4 class="mt-4" style="text-align: center">Orçamento do Livro <%= @book.title %></h4>
+
+  <div class="table-responsive">
+    <table class="table table-auto">
+      <thead>
+        <tr>
+          <th>Quantidade</th>
+          <th>Preço Ipsis</th>
+          <th>Preço Coan</th>
+          <th>Preço Geográfica</th>
+          <th>Preço Leográfica</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @book.printing_prices.each do |price| %>
+          <tr>
+            <td><%= price.quantity %></td>
+            <td>R$ <%= number_with_precision(price.ipsis_price, precision: 2, separator: ',', delimiter: '.') %></td>
+            <td>R$ <%= number_with_precision(price.coan_price, precision: 2, separator: ',', delimiter: '.') %></td>
+            <td>R$ <%= number_with_precision(price.geografica_price, precision: 2, separator: ',', delimiter: '.') %></td>
+            <td>R$ <%= number_with_precision(price.leograf_price, precision: 2, separator: ',', delimiter: '.') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<h5>  Dados Gerais</h5>
+
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Código</th>
+        <th>Páginas</th>
+        <th>Tiragem</th>
+        <th>Selo</th>
+        <th>Data de Entrega</th>
+        <th>Fitilho</th>
+        <th>Cabeceado</th>
+        <th>Pintura Lateral</th>
+        <th>Adesivo</th>
+        <th>Encartes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @book.title %></td>
+        <td><%= @book.code %></td>
+        <td><%= @book.pages %></td>
+        <td><%= @book.tiragem %></td>
+        <td><%= @book.selo %></td>
+        <td><%= @book.delivery_date %></td>
+        <td><%= @book.fitilho %></td>
+        <td><%= @book.cabeceado %></td>
+        <td><%= @book.pintura_lateral %></td>
+        <td><%= @book.sticker %></td>
+        <td><%= @book.encartes %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5>Dados da Capa</h5>
+
+  <%# <div class="table-responsive"> %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tipo de Capa</th>
+          <th>Formato da Capa</th>
+          <th>Papel da Capa</th>
+          <th>Cores da Capa</th>
+          <th>Acabamento da Capa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @book.cover_type %></td>
+          <td><%= @book.cover_format %></td>
+          <td><%= @book.cover_paper %></td>
+          <td><%= @book.cover_colors %></td>
+          <td><%= @book.cover_finish %></td>
+        </tr>
+      </tbody>
+    </table>
+  <%# </div> %>
+
+  <h5>Dados do Miolo</h5>
+
+  <%# <div class="table-responsive"> %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Formato do Miolo</th>
+          <th>Papel do Miolo</th>
+          <th>Cores do Miolo</th>
+          <th>Acabamento do Miolo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @book.miolo_format %></td>
+          <td><%= @book.miolo_paper %></td>
+          <td><%= @book.miolo_colors %></td>
+          <td><%= @book.miolo_finish %></td>
+        </tr>
+      </tbody>
+    </table>
+  <%# </div> %>
+
+  <h5>Dados da Guarda</h5>
+
+  <%# <div class="table-responsive"> %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Formato da Guarda</th>
+          <th>Papel da Guarda</th>
+          <th>Cores da Guarda</th>
+          <th>Acabamento da Guarda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @book.guarda_format %></td>
+          <td><%= @book.guarda_paper %></td>
+          <td><%= @book.guarda_colors %></td>
+          <td><%= @book.guarda_finish %></td>
+        </tr>
+      </tbody>
+    </table>
+  <%# </div> %>
+
+
+
+</div>

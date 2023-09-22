@@ -61,6 +61,10 @@ class KitBooksController < ApplicationController
     if @kit_book.update(kit_book_params)
       redirect_to @kit_book, notice: 'Kit de livros atualizado com sucesso.'
     else
+      errors = @kit_book.errors.full_messages.join(', ')
+      puts errors
+      Rails.logger.error("Erro ao atualizar KitBook: #{@kit_book.errors}")
+      puts "Erro ao atualizar KitBook: #{@kit_book.errors}"
       render :edit
     end
   end

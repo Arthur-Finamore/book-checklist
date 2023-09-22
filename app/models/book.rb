@@ -9,6 +9,8 @@ class Book < ApplicationRecord
   has_one :guarda
   include PgSearch::Model
 
+  validates :title, :code, :selo, presence: true
+
   pg_search_scope :search_by_title_and_code,
   against: [ :title, :code ],
   using: {
