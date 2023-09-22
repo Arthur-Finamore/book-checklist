@@ -43,73 +43,79 @@
     <%= f.input :guarda_colors, label: "Cores da Guarda", input_html: { style: "width: 500px;" } %>
     <%= f.input :guarda_finish, label: "Acabamento da Guarda", input_html: { style: "width: 500px;" } %>
 
-      <div class="container">
-        <h3>Orçamento:</h3>
-      <% if @book.printing_prices.present? %>
-<table>
-  <thead>
-    <tr>
-      <th>Quantity</th>
-      <th>Ipsis Price</th>
-      <th>Coan Price</th>
-      <th>Geografica Price</th>
-      <th>Leograf Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% grouped_prices = @book.printing_prices.group_by(&:quantity) %>
-    <% grouped_prices.each do |quantity, prices| %>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;"><strong><%= quantity %></strong></td>
-        <td style="align-item: center; vertical-align: middle;"><%= f.simple_fields_for :printing_prices, prices.first do |ff| %>
-          <%= ff.input :ipsis_price, label: false %>
-        <% end %></td>
-        <td><%= f.simple_fields_for :printing_prices, prices.first do |ff| %>
-          <%= ff.input :coan_price, label: false %>
-        <% end %></td>
-        <td><%= f.simple_fields_for :printing_prices, prices.first do |ff| %>
-          <%= ff.input :geografica_price, label: false %>
-        <% end %></td>
-        <td><%= f.simple_fields_for :printing_prices, prices.first do |ff| %>
-          <%= ff.input :leograf_price, label: false %>
-        <% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-      <% else %>
-        <% 4.times do |i| %>
-          <% if i == 0 %>
-            <table>
-              <thead>
-                <tr>
-                  <th>Quantity</th>
-                  <th>Ipsis Price</th>
-                  <th>Coan Price</th>
-                  <th>Geografica Price</th>
-                  <th>Leograf Price</th>
-                </tr>
-              </thead>
-              <tbody>
-          <% end %>
-          <%= f.simple_fields_for :printing_prices do |ff| %>
-            <tr>
-              <td ><%= ff.input :quantity, label: false %></td>
-              <td><%= ff.input :ipsis_price, label: false %></td>
-              <td><%= ff.input :coan_price, label: false %></td>
-              <td><%= ff.input :geografica_price, label: false %></td>
-              <td><%= ff.input :leograf_price, label: false %></td>
-            </tr>
-          <% end %>
-          <% if i == 3 %>
-              </tbody>
-            </table>
-          <% end %>
-        <% end %>
-      </div>
-      <% end %>
-    <%= f.submit "Criar Check-list", class: "btn btn-dark mt-5"; %>
 
-    <% end %>
-  </div>
+    <div class="container">
+      <h3>Orçamento:</h3>
+
+        <% if @book.printing_prices.present? %>
+        <table>
+          <thead>
+            <tr>
+              <th>Quantity</th>
+              <th>Ipsis Price</th>
+              <th>Coan Price</th>
+              <th>Geografica Price</th>
+              <th>Leograf Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% grouped_prices = @book.printing_prices.group_by(&:quantity) %>
+            <% grouped_prices.each do |quantity, prices| %>
+              <tr>
+                <td style="text-align: center; vertical-align: middle;"><strong><%= quantity %></strong></td>
+                <% prices.each do |price| %>
+                  <td style="align-item: center; vertical-align: middle;">
+                    <%= f.simple_fields_for :printing_prices, price do |ff| %>
+                      <%= ff.input :ipsis_price, label: false %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= f.simple_fields_for :printing_prices, price do |ff| %>
+                      <%= ff.input :coan_price, label: false %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= f.simple_fields_for :printing_prices, price do |ff| %>
+                      <%= ff.input :geografica_price, label: false %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= f.simple_fields_for :printing_prices, price do |ff| %>
+                      <%= ff.input :leograf_price, label: false %>
+                    <% end %>
+                  </td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+        <% else %>
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Quantity</th>
+                <th>Ipsis Price</th>
+                <th>Coan Price</th>
+                <th>Geografica Price</th>
+                <th>Leograf Price</th>
+              </tr>
+            </thead>
+              <tbody>
+                  <tr>
+            <% 4.times do %>
+                <%= f.simple_fields_for :printing_prices do |ff| %>
+                    <td><%= ff.input :quantity, label: false %></td>
+                    <td><%= ff.input :ipsis_price, label: false %></td>
+                    <td><%= ff.input :coan_price, label: false %></td>
+                    <td><%= ff.input :geografica_price, label: false %></td>
+                    <td><%= ff.input :leograf_price, label: false %></td>
+                <% end %>
+            <% end %>
+                  </tr>
+              </tbody>
+          <% end %>
+          </table>
+            <%= f.submit "Atualizar Check-list", class: "btn btn-dark mt-5"; %>
+          <% end %>
 </div>
