@@ -1,0 +1,13 @@
+<%= render 'navbar' %>
+
+<h3>SELECIONE O TITULO QUE DESEJA VER O ORÇAMENTO:</h3>
+
+<div class="container">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-md-4 mb-4">
+         <%= link_to "#{book.code} - #{book.title}", printing_prices_show_book_path(book.id), style: 'text-decoration: none; align-self: center', class: 'book-button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

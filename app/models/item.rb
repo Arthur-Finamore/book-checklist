@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
   validates :item, presence: true
   validates :quantity, presence: true, numericality: { only_integer: true }
-  validates :total_price, :shipping, presence: true, numericality: true
+  validates :total_price, presence: true, numericality: true
 
   before_validation :calculate_unit_price
 

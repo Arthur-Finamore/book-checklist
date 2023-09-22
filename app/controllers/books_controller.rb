@@ -15,6 +15,16 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def printing_prices_show
+    @book = Book.find(params[:id])
+    @printing_prices = @book.printing_prices.all
+  end
+
+  def printing_prices_index
+    @books = Book.all
+    # @book = Book.find(params[:id])
+    # @printing_prices = @book.printing_prices
+  end
 
   def show
     @book = Book.find(params[:id])

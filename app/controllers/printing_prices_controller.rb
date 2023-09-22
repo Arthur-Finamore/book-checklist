@@ -4,6 +4,7 @@ class PrintingPricesController < ApplicationController
 
   def index
     @printing_prices = @book.printing_prices
+    @books = Book.all
   end
 
   def show
@@ -42,7 +43,7 @@ class PrintingPricesController < ApplicationController
   private
 
   def set_book
-    @book = Book.find(params[:book_id])
+    @book = Book.find(params[:id])
   end
 
   def set_printing_price
