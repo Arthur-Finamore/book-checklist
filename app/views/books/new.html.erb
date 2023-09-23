@@ -7,43 +7,45 @@
   </div>
 
   <div class="book-form">
-    <%= simple_form_for @book do |f| %>
-      <h3>Dados Gerais</h3>
+    <div class="container-books">
+      <%= simple_form_for @book do |f| %>
+        <h3>Dados Gerais</h3>
 
-      <%= f.input :title, label: "Título", input_html: { style: "width: 500px;" } %>
-      <%= f.input :code, label: "Código", input_html: { style: "width: 500px;" } %>
-      <%= f.input :pages, label: "Páginas", input_html: { style: "width: 500px;" } %>
-      <%= f.input :tiragem, input_html: { style: "width: 500px;" } %>
-      <%= f.input :selo, label: "Selo", input_html: { style: "width: 500px;" } %>
-      <%= f.input :delivery_date, input_html: { style: "width: 33%;" } %>
+        <%= f.input :title, label: "Título", input_html: { style: "width: 500px;" } %>
+        <%= f.input :code, label: "Código", input_html: { style: "width: 500px;" } %>
+        <%= f.input :pages, label: "Páginas", input_html: { style: "width: 500px;" } %>
+        <%= f.input :tiragem, input_html: { style: "width: 500px;" } %>
+        <%= f.input :selo, label: "Selo", input_html: { style: "width: 500px;" } %>
+        <%= f.input :delivery_date, input_html: { style: "width: 33%;" } %>
 
-      <%= f.input :fitilho, input_html: { style: "width: 500px;" } %>
-      <%= f.input :cabeceado, input_html: { style: "width: 500px;" } %>
-      <%= f.input :pintura_lateral, input_html: { style: "width: 500px;" } %>
-      <%= f.input :sticker %>
-      <%= f.input :encartes %>
+        <%= f.input :fitilho, input_html: { style: "width: 500px;" } %>
+        <%= f.input :cabeceado, input_html: { style: "width: 500px;" } %>
+        <%= f.input :pintura_lateral, input_html: { style: "width: 500px;" } %>
+        <%= f.input :sticker %>
+        <%= f.input :encartes %>
 
-      <h3>Dados de Capa</h3>
+        <h3>Dados de Capa</h3>
 
-      <%= f.input :cover_type, label: "Tipo de Capa", input_html: { style: "width: 500px;" } %>
-      <%= f.input :cover_format, label: "Formato de Capa", input_html: { style: "width: 500px;" } %>
-      <%= f.input :cover_paper, label: "Papel da Capa", input_html: { style: "width: 500px;" } %>
-      <%= f.input :cover_colors, label: "Cores da Capa", input_html: { style: "width: 500px;" } %>
-      <%= f.input :cover_finish, label: "Acabamento da Capa", input_html: { style: "width: 500px;" } %>
+        <%= f.input :cover_type, label: "Tipo de Capa", input_html: { style: "width: 500px;" } %>
+        <%= f.input :cover_format, label: "Formato de Capa", input_html: { style: "width: 500px;" } %>
+        <%= f.input :cover_paper, label: "Papel da Capa", input_html: { style: "width: 500px;" } %>
+        <%= f.input :cover_colors, label: "Cores da Capa", input_html: { style: "width: 500px;" } %>
+        <%= f.input :cover_finish, label: "Acabamento da Capa", input_html: { style: "width: 500px;" } %>
 
-      <h3>Dados do Miolo</h3>
+        <h3>Dados do Miolo</h3>
 
-      <%= f.input :miolo_format, label: "Formato do Miolo", input_html: { style: "width: 500px;" } %>
-      <%= f.input :miolo_paper, label: "Papel do Miolo", input_html: { style: "width: 500px;" } %>
-      <%= f.input :miolo_colors, label: "Cores do Miolo", input_html: { style: "width: 500px;" } %>
-      <%= f.input :miolo_finish, label: "Acabamento do Miolo", input_html: { style: "width: 500px;" } %>
+        <%= f.input :miolo_format, label: "Formato do Miolo", input_html: { style: "width: 500px;" } %>
+        <%= f.input :miolo_paper, label: "Papel do Miolo", input_html: { style: "width: 500px;" } %>
+        <%= f.input :miolo_colors, label: "Cores do Miolo", input_html: { style: "width: 500px;" } %>
+        <%= f.input :miolo_finish, label: "Acabamento do Miolo", input_html: { style: "width: 500px;" } %>
 
-      <h3>Dados de Guarda</h3>
+        <h3>Dados de Guarda</h3>
 
-      <%= f.input :guarda_format, label: "Formato da Guarda", input_html: { style: "width: 500px;" } %>
-      <%= f.input :guarda_paper, label: "Papel da Guarda", input_html: { style: "width: 500px;" } %>
-      <%= f.input :guarda_colors, label: "Cores da Guarda", input_html: { style: "width: 500px;" } %>
-      <%= f.input :guarda_finish, label: "Acabamento da Guarda", input_html: { style: "width: 500px;" } %>
+        <%= f.input :guarda_format, label: "Formato da Guarda", input_html: { style: "width: 500px;" } %>
+        <%= f.input :guarda_paper, label: "Papel da Guarda", input_html: { style: "width: 500px;" } %>
+        <%= f.input :guarda_colors, label: "Cores da Guarda", input_html: { style: "width: 500px;" } %>
+        <%= f.input :guarda_finish, label: "Acabamento da Guarda", input_html: { style: "width: 500px;" } %>
+      </div>
 
       <div class="container">
         <h3>Orçamento:</h3>
