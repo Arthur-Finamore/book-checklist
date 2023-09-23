@@ -37,14 +37,27 @@
   </table>
   <div class="kit-book-footer">
     <%= link_to "Editar Kit Book", edit_kit_book_path, class:"btn btn-dark", style:"height: 40px;"  %>
-    <div class="flex">
-      <% if @kit_book.budget_price.is_a?(String) %>
-        <p style="margin: 0"><strong>Orçamento:</strong></p>
-         <p style="margin: 0">R$<%= number_with_precision(@kit_book.budget_price, precision: 2, separator: ',', delimiter: '.') %></p>
-      <% else %>
-        <p style="margin: 0"><strong>O Valor do Orçamento ainda não foi definido</strong></p>
-      <% end %>
-    </div>
+    <table>
+  <thead>
+    <tr>
+      <th style="margin: 0">
+        <strong>Orçamento:</strong>
+      </th>
+    </tr>
+  <thead>
+  <tbody>
+    <tr>
+      <td style="margin: 0">
+        <% if @kit_book.budget_price.is_a?(String) %>
+         <strong>R$ <%= number_with_precision(@kit_book.budget_price, precision: 2, separator: ',', delimiter: '.') %></strong>
+        <% else %>
+          <strong>O Valor do Orçamento ainda não foi definido</strong>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
     <table>
       <thead>
