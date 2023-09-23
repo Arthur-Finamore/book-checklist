@@ -1,6 +1,13 @@
 <%= render 'navbar' %>
 
 <h3>TODOS OS TITULOS CADASTRADOS:</h3>
-<% @books.each do |book| %>
-      <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+
+<div class="container">
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-md-4 mb-4">
+        <%= link_to "#{book.code} - #{book.title}", book_path(book.id), style: 'text-decoration: none;', class: 'book-button' %>
+      </div>
     <% end %>
+  </div>
+</div>
