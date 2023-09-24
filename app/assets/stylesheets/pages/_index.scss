@@ -6,7 +6,7 @@
 .book-button {
   /* Seus estilos de transição */
   color: #ffffff;
-  background-color: #262626;
+  background: linear-gradient(to right, #424242, #000001);
   border-color: #262626;
   border-radius: .25rem;
   transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
@@ -17,6 +17,10 @@
   /* Centraliza horizontalmente e ajusta verticalmente conforme necessário */
   display: block;
   margin: 20px auto; /* Ajuste a margem superior e inferior conforme necessário */
+}
+
+.book-button:hover{
+  color: red;
 
 }
 
@@ -48,4 +52,9 @@
 a {
   text-decoration: none;
   color: black;
+}
+
+.page-title{
+  margin-top: 2rem;
+  text-align:center;
 }
