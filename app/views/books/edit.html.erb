@@ -3,7 +3,7 @@
 <div class= "new-book-container">
   <div class= "book-form-header">
     <%= image_tag('logo_darkside_branca.png', class:'small-logo') %>
-   <h2><strong>CHECKLIST DE LANÇAMENTO</strong></h2>
+   <h2><strong>CHECKLIST DE <%= @book.title.upcase %></strong></h2>
   </div>
   <div class= 'book-form'>
   <%= simple_form_for @book do |f| %>
@@ -43,12 +43,13 @@
     <%= f.input :guarda_colors, label: "Cores da Guarda", input_html: { style: "width: 500px;" } %>
     <%= f.input :guarda_finish, label: "Acabamento da Guarda", input_html: { style: "width: 500px;" } %>
 
+    </div>
 
-    <div class="container">
+    <div class="container book-form">
       <h3>Orçamento:</h3>
 
-        <% if @book.printing_prices.present? %>
-        <table>
+      <% if @book.printing_prices.all? { |price| price.quantity.present? || price.ipsis_price.present? || price.coan_price.present? || price.geografica_price.present? || price.leograf_price.present? } %>
+        <table class = "table">
           <thead>
             <tr>
               <th>Quantity</th>
@@ -62,12 +63,18 @@
             <% grouped_prices = @book.printing_prices.group_by(&:quantity) %>
             <% grouped_prices.each do |quantity, prices| %>
               <tr>
-                <td style="text-align: center; vertical-align: middle;"><strong><%= quantity %></strong></td>
+                <td style="text-align: center; vertical-align: middle;">
+                  <div >
+                    <strong><%= quantity %></strong>
+                    </div>
+                </td>
                 <% prices.each do |price| %>
-                  <td style="align-item: center; vertical-align: middle;">
-                    <%= f.simple_fields_for :printing_prices, price do |ff| %>
-                      <%= ff.input :ipsis_price, label: false %>
-                    <% end %>
+                   <td>
+                    <div id = "input-mb-0">
+                      <%= f.simple_fields_for :printing_prices, price do |ff| %>
+                        <%= ff.input :ipsis_price, label: false %>
+                      <% end %>
+                    </div>
                   </td>
                   <td>
                     <%= f.simple_fields_for :printing_prices, price do |ff| %>
@@ -102,20 +109,35 @@
               </tr>
             </thead>
               <tbody>
-                  <tr>
-            <% 4.times do %>
-                <%= f.simple_fields_for :printing_prices do |ff| %>
-                    <td><%= ff.input :quantity, label: false %></td>
-                    <td><%= ff.input :ipsis_price, label: false %></td>
-                    <td><%= ff.input :coan_price, label: false %></td>
-                    <td><%= ff.input :geografica_price, label: false %></td>
-                    <td><%= ff.input :leograf_price, label: false %></td>
-                <% end %>
-            <% end %>
+                <% 4.times do %>
+                <div>
+                 <tr>
+                    <%= f.simple_fields_for :printing_prices do |ff| %>
+                      <td><%= ff.input :quantity, label: false %></td>
+                      <td><%= ff.input :ipsis_price, label: false, placeholder: "R$" %></td>
+                      <td><%= ff.input :coan_price, label: false, placeholder: "R$" %></td>
+                      <td><%= ff.input :geografica_price, label: false, placeholder: "R$" %></td>
+                      <td><%= ff.input :leograf_price, label: false, placeholder: "R$", inputmode: "numeric" %></td>
+                    <% end %>
                   </tr>
+                </div>
+                <% end %>
               </tbody>
           <% end %>
           </table>
             <%= f.submit "Atualizar Check-list", class: "btn btn-dark mt-5"; %>
-          <% end %>
+      <% end %>
+    </div>
 </div>
+
+
+<script>
+  var elements = document.querySelectorAll("div.decimal.optional");
+
+  console.log(elements)
+
+  for (var element of elements) {
+    element.classList.remove("mb-3");
+  }
+
+    </script>
