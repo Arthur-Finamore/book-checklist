@@ -56,3 +56,19 @@
 .custom-select {
   width: 200px; /* Defina a largura desejada aqui */
 }
+
+.value-box {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: inline-block; /* Makes the box inline so it doesn't break the layout */
+}
+
+.table div {
+  margin-bottom: 0;
+}
+
+.decimal.optional.book_printing_prices_ipsis_price {
+  margin-bottom: 0;
+}
