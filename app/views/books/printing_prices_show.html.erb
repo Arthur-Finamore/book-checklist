@@ -28,112 +28,130 @@
     </table>
   </div>
 
-<h5>  Dados Gerais</h5>
+  <button class="btn btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dadosGerais" aria-expanded="false" aria-controls="dadosGerais">
+  Dados Gerais
+  </button>
 
   <div class="table-responsive">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Título</th>
-        <th>Código</th>
-        <th>Páginas</th>
-        <th>Tiragem</th>
-        <th>Selo</th>
-        <th>Data de Entrega</th>
-        <th>Fitilho</th>
-        <th>Cabeceado</th>
-        <th>Pintura Lateral</th>
-        <th>Adesivo</th>
-        <th>Encartes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= @book.title %></td>
-        <td><%= @book.code %></td>
-        <td><%= @book.pages %></td>
-        <td><%= @book.tiragem %></td>
-        <td><%= @book.selo %></td>
-        <td><%= @book.delivery_date %></td>
-        <td><%= @book.fitilho %></td>
-        <td><%= @book.cabeceado %></td>
-        <td><%= @book.pintura_lateral %></td>
-        <td><%= @book.sticker %></td>
-        <td><%= @book.encartes %></td>
-      </tr>
-    </tbody>
-  </table>
+    <div class="collapse" id="dadosGerais">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Código</th>
+            <th>Páginas</th>
+            <th>Tiragem</th>
+            <th>Selo</th>
+            <th>Data de Entrega</th>
+            <th>Fitilho</th>
+            <th>Cabeceado</th>
+            <th>Pintura Lateral</th>
+            <th>Adesivo</th>
+            <th>Encartes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @book.title %></td>
+            <td><%= @book.code %></td>
+            <td><%= @book.pages %></td>
+            <td><%= @book.tiragem %></td>
+            <td><%= @book.selo %></td>
+            <td><%= @book.delivery_date %></td>
+            <td><%= @book.fitilho %></td>
+            <td><%= @book.cabeceado %></td>
+            <td><%= @book.pintura_lateral %></td>
+            <td><%= @book.sticker %></td>
+            <td><%= @book.encartes %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div >
+  </div>
 
-  <h5>Dados da Capa</h5>
 
-  <%# <div class="table-responsive"> %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Tipo de Capa</th>
-          <th>Formato da Capa</th>
-          <th>Papel da Capa</th>
-          <th>Cores da Capa</th>
-          <th>Acabamento da Capa</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= @book.cover_type %></td>
-          <td><%= @book.cover_format %></td>
-          <td><%= @book.cover_paper %></td>
-          <td><%= @book.cover_colors %></td>
-          <td><%= @book.cover_finish %></td>
-        </tr>
-      </tbody>
-    </table>
-  <%# </div> %>
+  <button class="btn btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dadosCapa" aria-expanded="false" aria-controls="dadosCapa">
+  Dados de Capa
+  </button>
+  <div class="table-responsive">
+    <div class="collapse" id="dadosCapa">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tipo de Capa</th>
+            <th>Formato da Capa</th>
+            <th>Papel da Capa</th>
+            <th>Cores da Capa</th>
+            <th>Acabamento da Capa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @book.cover_type %></td>
+            <td><%= @book.cover_format %></td>
+            <td><%= @book.cover_paper %></td>
+            <td><%= @book.cover_colors %></td>
+            <td><%= @book.cover_finish %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <h5>Dados do Miolo</h5>
+ <button class="btn btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dadosMiolo" aria-expanded="false" aria-controls="dadosMiolo">
+    Dados do Miolo
+ </button>
 
-  <%# <div class="table-responsive"> %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Formato do Miolo</th>
-          <th>Papel do Miolo</th>
-          <th>Cores do Miolo</th>
-          <th>Acabamento do Miolo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= @book.miolo_format %></td>
-          <td><%= @book.miolo_paper %></td>
-          <td><%= @book.miolo_colors %></td>
-          <td><%= @book.miolo_finish %></td>
-        </tr>
-      </tbody>
-    </table>
-  <%# </div> %>
+  <div class="table-responsive">
+    <div class="collapse" id="dadosMiolo">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Formato do Miolo</th>
+            <th>Papel do Miolo</th>
+            <th>Cores do Miolo</th>
+            <th>Acabamento do Miolo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @book.miolo_format %></td>
+            <td><%= @book.miolo_paper %></td>
+            <td><%= @book.miolo_colors %></td>
+            <td><%= @book.miolo_finish %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <h5>Dados da Guarda</h5>
 
-  <%# <div class="table-responsive"> %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Formato da Guarda</th>
-          <th>Papel da Guarda</th>
-          <th>Cores da Guarda</th>
-          <th>Acabamento da Guarda</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= @book.guarda_format %></td>
-          <td><%= @book.guarda_paper %></td>
-          <td><%= @book.guarda_colors %></td>
-          <td><%= @book.guarda_finish %></td>
-        </tr>
-      </tbody>
-    </table>
-  <%# </div> %>
+ <button class="btn btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dadosGuarda" aria-expanded="false" aria-controls="dadosGuarda">
+    Dados da Guarda
+ </button>
+
+  <div class="table-responsive">
+    <div class="collapse" id="dadosGuarda">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Formato da Guarda</th>
+            <th>Papel da Guarda</th>
+            <th>Cores da Guarda</th>
+            <th>Acabamento da Guarda</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @book.guarda_format %></td>
+            <td><%= @book.guarda_paper %></td>
+            <td><%= @book.guarda_colors %></td>
+            <td><%= @book.guarda_finish %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
     <%= link_to 'Editar', edit_book_path(@book), class: "btn btn-dark" %>
 
