@@ -87,7 +87,7 @@ class BooksController < ApplicationController
       :miolo_format, :miolo_paper, :miolo_colors, :miolo_finish,
       :guarda_format, :guarda_paper, :guarda_colors, :guarda_finish,
 
-      printing_prices_attributes: [:id, :quantity, :ipsis_price, :coan_price, :geografica_price, :leograf_price, :_destroy]
+      printing_prices_attributes: [:id, :quantity, :santa_marta_price, :pancron_price, :ipsis_price, :coan_price, :geografica_price, :leograf_price, :_destroy]
     )
   end
 
