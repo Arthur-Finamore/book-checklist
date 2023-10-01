@@ -6,6 +6,8 @@ one:
   coan_price: 9.99
   geografica_price: 9.99
   leograf_price: 9.99
+  santa_marta_price: 9.99
+  pancron_price: 9.99
   book: one
 
 two:
@@ -14,4 +16,6 @@ two:
   coan_price: 9.99
   geografica_price: 9.99
   leograf_price: 9.99
+  santa_marta_price: 9.99
+  pancron_price: 9.99
   book: two

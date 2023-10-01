@@ -48,7 +48,7 @@
     <div class="container book-form">
       <h3>Orçamento:</h3>
 
-      <% if @book.printing_prices.all? { |price| price.quantity.present? || price.ipsis_price.present? || price.coan_price.present? || price.geografica_price.present? || price.leograf_price.present? } %>
+      <% if @book.printing_prices.all? { |price| price.quantity.present? || price.ipsis_price.present? || price.coan_price.present? || price.geografica_price.present? || price.leograf_price.present? || price.santa_marta_price.present? || prince.pancron_price.present? } %>
         <table class = "table">
           <thead>
             <tr>
@@ -57,6 +57,8 @@
               <th>Coan Price</th>
               <th>Geografica Price</th>
               <th>Leograf Price</th>
+              <th>Santa Marta Price</th>
+              <th>Pancron Price</th>
             </tr>
           </thead>
           <tbody>
@@ -106,6 +108,8 @@
                 <th>Coan Price</th>
                 <th>Geografica Price</th>
                 <th>Leograf Price</th>
+                <th>Santa Marta Price</th>
+                <th>Pancron Price</th>
               </tr>
             </thead>
               <tbody>
@@ -118,6 +122,8 @@
                       <td><%= ff.input :coan_price, label: false, placeholder: "R$" %></td>
                       <td><%= ff.input :geografica_price, label: false, placeholder: "R$" %></td>
                       <td><%= ff.input :leograf_price, label: false, placeholder: "R$", inputmode: "numeric" %></td>
+                      <td><%= ff.input :santa_marta_price, label: false, placeholder: "R$" %></td>
+                      <td><%= ff.input :pancron_price, label: false, placeholder: "R$" %></td>
                     <% end %>
                   </tr>
                 </div>
